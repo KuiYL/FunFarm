@@ -71,7 +71,7 @@ $isAdmin = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
 <div class="pravila py content" id="lavel">
     <h2>УРОВНИ ИГРЫ</h2>
     <h3>6 захватывающих испытаний ждут тебя</h3>
-    <div class="cart">
+    <div class="cart2">
         <div class="cart_item2">
             <div class="level">Уровень 1</div>
             <div class="cart_content">
@@ -135,26 +135,26 @@ $isAdmin = isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
     <a href="index.php?page=edit" class="color">Добавить стикер</a>
     <?php endif; ?>
 
-    <div class="stiks">
+    <div class="cart2">
         <?php if (empty($stickers)): ?>
         <p style="text-align:center; padding:30px; color:#666;">Стикеров пока нет</p>
         <?php else: ?>
         <?php foreach ($stickers as $sticker): ?>
-        <div class="stik">
+        <div class="cart_item">
             <img src="<?= htmlspecialchars($sticker['image_path']) ?>" alt="<?= htmlspecialchars($sticker['title']) ?>">
-
-            <h3><?= htmlspecialchars($sticker['title']) ?></h3>
-            <p><?= htmlspecialchars($sticker['description']) ?></p>
-
+            <div class="cart_content">
+                <h3><?= htmlspecialchars($sticker['title']) ?></h3>
+                <p><?= htmlspecialchars($sticker['description']) ?></p>
+            </div>
             <a href="<?= htmlspecialchars($sticker['image_path']) ?>" class="b" download>Скачать</a>
-
             <?php if ($isAdmin): ?>
-
-            <a href="index.php?page=update&id=<?= (int)$sticker['id'] ?>" class="u">Изменить</a>
-            <form action="php/delete_sticker.php" method="POST" class="delete-form" style="display:inline;">
-                <input type="hidden" name="sticker_id" value="<?= (int)$sticker['id'] ?>">
-                <button type="submit" class="u delete-btn">Удалить</button>
-            </form>
+            <div class="button-content">
+                <a href="index.php?page=update&id=<?= (int)$sticker['id'] ?>" class="u">Изменить</a>
+                <form action="php/delete_sticker.php" method="POST" class="delete-form" style="display:inline;">
+                    <input type="hidden" name="sticker_id" value="<?= (int)$sticker['id'] ?>">
+                    <button type="submit" class="u delete-btn">Удалить</button>
+                </form>
+            </div>
             <?php endif; ?>
         </div>
         <?php endforeach; ?>

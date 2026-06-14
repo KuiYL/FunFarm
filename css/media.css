@@ -98,14 +98,22 @@
     }
 
     .cart {
-        justify-content: center;
-        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(1, minmax(280px, 1fr));
         gap: 20px;
+        align-items: start;
+    }
+
+    .cart2 {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(280px, 1fr));
+        gap: 20px;
+        align-items: start;
     }
 
     .cart_item {
         padding: 12px;
-        gap: 20px;
+        gap: 10px;
         width: 100%;
     }
 
